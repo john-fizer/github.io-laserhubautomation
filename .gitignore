@@ -3,6 +3,11 @@
 __pycache__/
 *.pyc
 
+# Build artifacts
+node_modules/
+dist/
+build/
+
 # Environment and Secrets
 .env
 credentials.json
