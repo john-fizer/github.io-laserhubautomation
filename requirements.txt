@@ -63,3 +63,28 @@ df.to_csv(OUTPUT_FILE, index=False)
 print("Processing complete.")
 print(f"Cleaned file saved to: {OUTPUT_FILE}")
 
+
+
+
+
+Markdown.md per scope
+Add in commented out API key plus pull/read criteria 
+import unformatted csv, 
+convert, drop, clean and sort csv 
+   conversions
+#converting the clean data to what Mazak Smart System wants FORMATTING changing headers to the correct file naming system
+#changing the QJ_PartNumber to the DXF file name? I'm hoping the dxf name is the same as the QJ_PartNumber.
+    #This would skip this step, I'm going to write it as this is the assumption, and make the comment out pseudo code for the other logic
+     #Removing unnecessary columns    
+2 weeks out orders only, at first - priortizing the order rank by material up to 2 weeks out and then as time continues for the rest of the way
+        # Convert Order Qty to numeric, fill NaN with 0
+    df["Order Qty"] = pd.to_numeric(df["Order Qty"], errors="coerce").fillna(0)
+
+    # Sort: 
+    # 1. Largest quantity first (descending)
+    # 2. Then by Material Type (ascending)
+    df = df.sort_values(
+    by=["Order Qty", "Material Type", "DueDate"],
+    ascending=[False, True]
+)
+
